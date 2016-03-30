@@ -79,7 +79,7 @@ void *Hub(void *HubID){
 	ID = (int)HubID;
 	x[ID] = 500;
 	y[ID] = 500;
-	printf("Hub %d has been activated, X: %d, Y: %d", ID, x[ID], y[ID]);
+	printf("Hub %d has been activated, X: %d, Y: %d\n", ID, x[ID], y[ID]);
 	pthread_exit(NULL);
 }
 
@@ -105,6 +105,9 @@ int main(int argc, char*argv[]){
 	rc = pthread_create(&threads[0], NULL, Hub, (void *)0);
 	if(rc){
 		printf("ERROR happened in hub creation, error code %d\n", rc);
+	}
+	for(i = 1; i < 11; i++){
+		pthread_join(threads[i], NULL);
 	}
 
 	return 0;
