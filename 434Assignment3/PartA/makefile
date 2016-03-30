@@ -1,2 +1,2 @@
 all: System.c
-	gcc -Wall -Wextra -o sender System.c -lpthread
+	gcc -Wall -Wextra -o System System.c -lpthread
