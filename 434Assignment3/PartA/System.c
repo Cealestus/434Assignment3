@@ -87,18 +87,14 @@ int main(int argc, char*argv[]){
 	pthread_t threads[11];
 	int rc;
 	int i;
-	int k;
-	int d;
 
 	if(argc != 3){
 		printf("Use is K, D\n");
 		return 0;
 	}
 
-	k = atoi(argv[1]);
-	d = atoi(argv[2]);
-
-	printf("Arguments: %d, %d", k, d);
+	K = atoi(argv[1]);
+	D = atoi(argv[2]);
 
 	for(i = 1; i < 11; i++){
 		rc = pthread_create(&threads[i], NULL, Sensor, (void *)i);
